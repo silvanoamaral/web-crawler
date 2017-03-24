@@ -1,2 +1,2 @@
 # web-crawler
-Capturando informações de um site
+Crawler captura informações automática de um site, usando Node.js
