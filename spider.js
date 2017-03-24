@@ -4,10 +4,10 @@ var fs = require('fs');//Salvar os dados em uma pasta (node)
 
 var url = 'https://www.hering.com.br/store/';
 
-request(url, function(error,response,body){
+request(url, function(error,response,html){
 	if(error) console.log('[Error] '+ error);
 
-	var $ = cheerio.load(body);
+	var $ = cheerio.load(html);
 
-	fs.appendFile('home.html',body);
+	fs.appendFile('home.html',html);
 });
