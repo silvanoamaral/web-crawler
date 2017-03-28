@@ -12,7 +12,9 @@ request(url, function(error,response,html){
 
 		var corpo = $(html).find('body');
 
-		fs.appendFile('home.html',corpo);
+		fs.writeFile('home.html',corpo, function (err) {
+		    if(err) throw err;
+		});
 	}else{
 		console.error('[] '+err);
 	}
