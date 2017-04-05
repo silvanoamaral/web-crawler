@@ -1,5 +1,8 @@
 var gulp = require('gulp'),
-	htmlclean = require('gulp-htmlclean');
+	htmlclean = require('gulp-htmlclean'),
+    nodemon = require('gulp-nodemon'),
+    spawn = require('child_process').spawn,
+    node;
 
 
 gulp.task('teste', function(){
@@ -21,3 +24,42 @@ gulp.task('htmlclean', function(){
     }))
     .pipe(gulp.dest('./dist/'));
 });
+
+
+gulp.task('develop', function () {
+    nodemon({ 
+        nodemon: require('nodemon'),
+        script: 'spider.js'
+    })
+})
+
+/**
+ * $ gulp server
+ * description: launch the server. If there's a server already running, kill it.
+ */
+gulp.task('server', function() {
+    if (node) node.kill()
+    node = spawn('node', ['spider.js'], {stdio: 'inherit'})
+    node.on('close', function (code) {
+        if (code === 8) {
+            gulp.log('Error detected, waiting for changes...');
+        }
+    });
+})
+
+/**
+ * referencia: https://gist.github.com/webdesserts/5632955 
+ * $ gulp
+ * description: start the development environment
+ */
+gulp.task('default', function() {
+    gulp.run('server')
+    // Need to watch for sass changes too? Just add another watch call!
+    // no more messing around with grunt-concurrent or the like. Gulp is
+    // async by default.
+})
+
+// clean up if an error goes unhandled.
+process.on('exit', function() {
+    if (node) node.kill()
+})

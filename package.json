@@ -27,6 +27,7 @@
     "gulp-connect-multi": "^1.0.8",
     "gulp-htmlclean": "^2.7.11",
     "gulp-jade": "^0.11.0",
+    "gulp-nodemon": "^2.2.1",
     "gulp-replace": "^0.5.4",
     "gulp-stylus": "^2.0.0"
   }

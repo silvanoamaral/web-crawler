@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express'),
     fs = require('fs'),//Salvar os dados em uma pasta (node)
     request = require('request'),//Para fazer chamadas HTTP
@@ -16,6 +18,6 @@ request(url, function(error,response,html){
 		    if(err) throw err;
 		});
 	}else{
-		console.error('[] '+err);
-	}
+		console.error('[Silvano Amaral] Erro ao executar o script spider.js'+err);
+	}	
 });
