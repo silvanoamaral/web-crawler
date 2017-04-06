@@ -1,13 +1,10 @@
-var gulp = require('gulp'),
+var gulp = require('gulp'),// Núcleo do Gulp
 	htmlclean = require('gulp-htmlclean'),
     nodemon = require('gulp-nodemon'),
     spawn = require('child_process').spawn,
     node;
 
 
-gulp.task('teste', function(){
-	console.log("teste de task do GulpJS");
-});
 
 gulp.task('templates', function(){
 	gulp.src(['*.html'])// O "gulp.src" define onde está seu arquivo base para a tarefa
@@ -24,14 +21,6 @@ gulp.task('htmlclean', function(){
     }))
     .pipe(gulp.dest('./dist/'));
 });
-
-
-gulp.task('develop', function () {
-    nodemon({ 
-        nodemon: require('nodemon'),
-        script: 'spider.js'
-    })
-})
 
 /**
  * $ gulp server
