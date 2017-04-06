@@ -2,8 +2,8 @@ var gulp = require('gulp'),// Núcleo do Gulp
 	htmlclean = require('gulp-htmlclean'),
     nodemon = require('gulp-nodemon'),
     strip = require('gulp-strip-comments'),//removes comments from JSON, JavaScript, CSS, HTML, etc.
-    spawn = require('child_process').spawn,
-    node;
+    spawn = require('child_process').spawn, node,
+    prettify = require('gulp-jsbeautifier');
 
 
 
@@ -28,6 +28,13 @@ gulp.task('removes', function () {
   return gulp.src('home.html')
     .pipe(strip())
     .pipe(gulp.dest('./dist/'));
+});
+
+// indent file
+gulp.task('prettify', function() {
+  gulp.src(['./*.css', './*.html', './*.js'])
+    .pipe(prettify())
+    .pipe(gulp.dest('./dist'));
 });
 
 /**
