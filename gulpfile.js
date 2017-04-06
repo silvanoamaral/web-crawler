@@ -1,6 +1,7 @@
 var gulp = require('gulp'),// Núcleo do Gulp
 	htmlclean = require('gulp-htmlclean'),
     nodemon = require('gulp-nodemon'),
+    strip = require('gulp-strip-comments'),//removes comments from JSON, JavaScript, CSS, HTML, etc.
     spawn = require('child_process').spawn,
     node;
 
@@ -19,6 +20,13 @@ gulp.task('htmlclean', function(){
         protect: /<\!--%fooTemplate\b.*?%-->/g,
         edit: function(html) { return html.replace(/\begg(s?)\b/ig, 'omelet$1'); }
     }))
+    .pipe(gulp.dest('./dist/'));
+});
+
+//removes comments from JSON, JavaScript, CSS, HTML, etc.
+gulp.task('removes', function () {
+  return gulp.src('home.html')
+    .pipe(strip())
     .pipe(gulp.dest('./dist/'));
 });
 

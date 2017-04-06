@@ -29,6 +29,7 @@
     "gulp-jade": "^0.11.0",
     "gulp-nodemon": "^2.2.1",
     "gulp-replace": "^0.5.4",
+    "gulp-strip-comments": "^2.4.5",
     "gulp-stylus": "^2.0.0"
   }
 }
