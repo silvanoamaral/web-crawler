@@ -9,3 +9,4 @@ Crawler captura informações automática de um site, usando Node.js
  * npm install --save-dev gulp-htmlclean
  * npm install --save-dev gulp-nodemon
  * npm install --save-dev gulp-strip-comments
+ * npm install --save-dev gulp-jsbeautifier
