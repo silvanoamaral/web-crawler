@@ -1,5 +1,4 @@
 'use strict';
-
 var express = require('express'),
     fs = require('fs'),//Salvar os dados em uma pasta (node)
     request = require('request'),//Para fazer chamadas HTTP
